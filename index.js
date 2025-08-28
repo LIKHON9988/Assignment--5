@@ -28,6 +28,20 @@ for (let button of callButtons) {
       coinCount -= cost;
       coinCountElement.innerText = coinCount;
 
+      // ------------------mobile minus part------------->>>>>>
+      const coinCountElementMobile = getElement("coin-count-mobile");
+      let coinCountMobile = Number(coinCountElementMobile.innerText);
+
+      const cost2 = 20;
+
+      if (coinCountMobile < cost2) {
+        alert("❌ You have insufficient balance");
+        return;
+      }
+
+      coinCountMobile -= cost2;
+      coinCountElementMobile.innerText = coinCountMobile;
+
       // -----------------------history part---------------------->>>>>>>>
 
       const historyContainer = getElement("history-container");
@@ -50,7 +64,7 @@ clearButton.addEventListener("click", function () {
   callHistory.innerHTML = "";
 });
 
-// -------------------------------hear icon part -------------------------->>>>>>>>>>>>
+// -------------------------------heart icon part -------------------------->>>>>>>>>>>>
 
 const heartButtons = document.querySelectorAll(".heart-btn");
 
@@ -66,6 +80,22 @@ for (let heart of heartButtons) {
     heartCountElement.innerText = heartCount;
   });
 }
+// --------------Mobile heart part-------------->>>>>>>>>
+
+const heartButtonMobile = document.querySelectorAll(".heart-btn");
+
+function getElement(id) {
+  return document.getElementById(id);
+}
+
+for (let heart of heartButtonMobile) {
+  heart.addEventListener("click", function () {
+    const heartCountMobile = getElement("heart-count-mobile");
+    let heartCountOn = Number(heartCountMobile.innerText);
+    heartCountOn++;
+    heartCountMobile.innerText = heartCountOn;
+  });
+}
 
 // --------------------------------copy button---------------------->>>>>>>>>
 
@@ -77,5 +107,18 @@ for (let button of copyButtons) {
     let totalCount = Number(copyCount.innerText);
     totalCount++;
     copyCount.innerText = totalCount;
+  });
+}
+
+// -------------------------copy button mobile------------->>>>>>>>>>>>>
+
+const copyButtonMobile = document.querySelectorAll(".copy-btn");
+
+for (let button of copyButtonMobile) {
+  button.addEventListener("click", function () {
+    const copyCountMobile = document.getElementById("copy-count-mobile");
+    let totalCountMobile = Number(copyCountMobile.innerText);
+    totalCountMobile++;
+    copyCountMobile.innerText = totalCountMobile;
   });
 }

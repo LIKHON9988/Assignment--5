@@ -60,7 +60,7 @@
           </h1>
         </div>
         
-        <!-- Mobile menu button -->
+        <!-- nav button -->
         <div class="md:hidden">
           <button id="mobile-menu-button" class="text-2xl">
             <i class="fas fa-bars"></i>
@@ -82,21 +82,21 @@
         </div>
       </nav>
       
-      <!-- Mobile menu (hidden by default) -->
+      <!-- Mobile menu bar -->
       <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white py-4 px-4 absolute left-0 right-0 shadow-lg">
         <div class="flex flex-col space-y-3">
           <button class="btn rounded-3xl bg-[#e6f7e7] h-9 w-full flex items-center justify-center gap-1">
-            <span>0</span>
+            <span id="heart-count-mobile">0</span>
             <img src="assets/heart.png" alt="Favorites" class="h-5 w-5" />
             <span>Favorites</span>
           </button>
           <button class="btn rounded-3xl bg-[#e6f7e7] h-9 w-full flex items-center justify-center gap-1">
-            <span>100</span>
+            <span id="coin-count-mobile">100</span>
             <img src="assets/coin.png" alt="Coins" class="h-5 w-5" />
             <span>Coins</span>
           </button>
           <button class="btn bg-[#00A63E] rounded-3xl h-9 w-full text-white flex items-center justify-center gap-1">
-            <span>0</span><span>Copy</span>
+            <span id="copy-count-mobile">0</span><span>Copy</span>
           </button>
         </div>
       </div>
