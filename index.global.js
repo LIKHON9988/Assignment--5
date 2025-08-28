@@ -12,5 +12,3 @@ cardHearts.forEach((heart) => {
     console.log("navHeart.textContent");
   });
 });
-
-// ---------------------------------call section---------------->>>>>>>>>>>>>>
