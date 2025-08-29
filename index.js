@@ -80,7 +80,7 @@ for (let heart of heartButtons) {
     heartCountElement.innerText = heartCount;
   });
 }
-// --------------Mobile heart part-------------->>>>>>>>>
+// --------------Mobile heart icon part-------------->>>>>>>>>
 
 const heartButtonMobile = document.querySelectorAll(".heart-btn");
 
@@ -102,23 +102,21 @@ for (let heart of heartButtonMobile) {
 document.addEventListener("DOMContentLoaded", function () {
   const copyButtons = document.querySelectorAll(".copy-btn");
 
-  // Navigation counters
   const copyCountDesktop = document.getElementById("copy-count");
   const copyCountMobile = document.getElementById("copy-count-mobile");
 
   copyButtons.forEach((button) => {
     button.addEventListener("click", function () {
-      // Find the parent card
       const card = button.closest(".parent-card");
       const numberElement = card.querySelector(".number-text");
       const numberText = numberElement.innerText;
 
-      // Copy number to clipboard
+      //--------------- Copy to clipboard--------------->>>>>>>>
       navigator.clipboard.writeText(numberText).then(() => {
         alert(`Number ${numberText} copied!`);
       });
 
-      // Increase copy count in navbar (desktop + mobile)
+      // ____________________Increase copy count -------------------->>>>>>>>>>>>>
       let currentDesktop = Number(copyCountDesktop.innerText);
       let currentMobile = Number(copyCountMobile.innerText);
 
@@ -130,3 +128,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// --------------------------------the end----------------->>>>>>>>>>>>>>>>
