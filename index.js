@@ -99,26 +99,34 @@ for (let heart of heartButtonMobile) {
 
 // --------------------------------copy button---------------------->>>>>>>>>
 
-const copyButtons = document.querySelectorAll(".copy-btn");
+document.addEventListener("DOMContentLoaded", function () {
+  const copyButtons = document.querySelectorAll(".copy-btn");
 
-for (let button of copyButtons) {
-  button.addEventListener("click", function () {
-    const copyCount = document.getElementById("copy-count");
-    let totalCount = Number(copyCount.innerText);
-    totalCount++;
-    copyCount.innerText = totalCount;
+  // Navigation counters
+  const copyCountDesktop = document.getElementById("copy-count");
+  const copyCountMobile = document.getElementById("copy-count-mobile");
+
+  copyButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      // Find the parent card
+      const card = button.closest(".parent-card");
+      const numberElement = card.querySelector(".number-text");
+      const numberText = numberElement.innerText;
+
+      // Copy number to clipboard
+      navigator.clipboard.writeText(numberText).then(() => {
+        alert(`Number ${numberText} copied!`);
+      });
+
+      // Increase copy count in navbar (desktop + mobile)
+      let currentDesktop = Number(copyCountDesktop.innerText);
+      let currentMobile = Number(copyCountMobile.innerText);
+
+      currentDesktop++;
+      currentMobile++;
+
+      copyCountDesktop.innerText = currentDesktop;
+      copyCountMobile.innerText = currentMobile;
+    });
   });
-}
-
-// -------------------------copy button mobile------------->>>>>>>>>>>>>
-
-const copyButtonMobile = document.querySelectorAll(".copy-btn");
-
-for (let button of copyButtonMobile) {
-  button.addEventListener("click", function () {
-    const copyCountMobile = document.getElementById("copy-count-mobile");
-    let totalCountMobile = Number(copyCountMobile.innerText);
-    totalCountMobile++;
-    copyCountMobile.innerText = totalCountMobile;
-  });
-}
+});
